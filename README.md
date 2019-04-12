@@ -1,1 +1,7 @@
-# bamazon
+# bamazon!
+
+Please watch my demo video for this app: https://drive.google.com/file/d/1HXWgB9ABH6IMyEpDa_i6rMsVoFiDzNWe/view. The app uses node.js and a MySQL database.
+
+The bamazon app provides an online "store" for foreign language-learning books. In the customer view version (bamazonCustomer.js), the customer is able to view (in node.js) a list of items available, including item number, title, department, price, and quantity available. The customer is prompted to input the item number of the desired item, and how many units desired. If there is sufficient quantity, the customer is notified of a successful purchase and the total price for that item, and the database is updated to reflect the new quantity. If there is not enough quantity, the customer is notified and prompted to choose again.
+
+In the manager version (bamazonManager.js), the user is prompted to choose one of five options. If "View Products for Sale" is chosen, all available items are displayed, including all the information mentioned above. If "View Low Inventory" is chosen, only products with less than five items remaining are displayed. If "Add to Inventory" is selected, the user is prompted to select an item and add the desire quantity, and the database is updated. If "Add New Product" is selected, the user is prompted to enter an item number, title, department, price, and quantity for an entirely new item. Finally, users have the option to "End Session." After each choice except the last, the user is again presented with the options menu. 
