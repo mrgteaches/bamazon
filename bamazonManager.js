@@ -18,6 +18,7 @@ var connection = mysql.createConnection({
     start();
   });
 
+  // opens options prompt
   function start(){
     inquirer.prompt([{
       type: "list",
@@ -39,7 +40,7 @@ var connection = mysql.createConnection({
     });
   }
 
-  //views all inventory
+  //view all inventory
   function viewProducts(){
     console.log("-----All Inventory-----");
     connection.query('SELECT * FROM products', function(err, res){
@@ -120,12 +121,8 @@ var connection = mysql.createConnection({
   function addNewProduct(){
     console.log('-----Adding New Product-----');
   
-    //grab name of departments
     connection.query('SELECT * FROM products', function(err, res){
       if(err) throw err;
-    //   for(var i = 0; i<res.length; i++){
-    //     deptNames.push(res[i].department_name);
-    //   }
     })
   
     inquirer.prompt([{
@@ -152,7 +149,6 @@ var connection = mysql.createConnection({
         if(value){return true;}
         else{return false;}
       }
-
     }, {
       type: "input",
       name: "price",
@@ -170,7 +166,7 @@ var connection = mysql.createConnection({
         else{return false;}
       }
     }]).then(function(ans){
-      connection.query('INSERT INTO products SET ?',{
+      connection.query('INSERT INTO products SET ?',{    //updates database with new product
         item_id: ans.id,  
         product_name: ans.product,
         department_name: ans.department,
@@ -181,8 +177,6 @@ var connection = mysql.createConnection({
         console.log('Another item was added to the store.');
         start();
       })
-    //   start();
     });
   }
   
-//    start();
